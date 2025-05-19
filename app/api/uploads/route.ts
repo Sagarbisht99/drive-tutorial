@@ -6,12 +6,12 @@ import { auth } from "@clerk/nextjs/server";
 
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
-  
+
   try {
     await connectDB();
     // Check if there's a file
     const data = await req.formData();
-    const file =  data.get("fileInput") as File;
+    const file = data.get("fileInput") as File;
 
     if (!file) {
       return NextResponse.json({ error: "No file received" }, { status: 400 });
@@ -24,7 +24,6 @@ export async function POST(req: NextRequest) {
       file: buffer,
       fileName: file.name,
     });
-
 
     if (!userId) {
       return NextResponse.json(

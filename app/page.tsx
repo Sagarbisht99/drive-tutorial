@@ -97,7 +97,7 @@ const Page = () => {
         </div>
 
         {fileName && (
-          <div className="mt-4 text-white text-center">
+          <div className="mt-4 text-white text-center overflow-hidden">
             <p>📄 {fileName}</p>
           </div>
         )}
